@@ -31,17 +31,27 @@ def minaFuerzaBruta(Matriz,Res):
         caminos += obtenercaminos_aux([[i,0]], I,J,Matriz,[])
         i += 1
     mayor = caminos[0]
-    for camino in caminos:
-        mayor = listaMayor(mayor, camino, Matriz,J)
-
+    caminosMayores = [mayor]
+    for camino in caminos[1:]:
+        listMayor = listaMayor(mayor, camino, Matriz,J)
+        if (listMayor == 0):
+            caminosMayores = caminosMayores + [camino]
+        elif (listMayor == 2):
+            caminosMayores =  [camino]
+            mayor = camino
     i = 0
     rest = 0
     while (i < J):
         rest += Matriz[mayor[i][0]] [mayor[i][1]]
         i += 1
     print ("Output : " + str(rest))
-    #lectura.leer("mina1.txt")
-    return mayor
+    if(len(caminosMayores) > 1):
+        print("Caminos:")
+    else:
+        print("Camino:")
+    for camino in caminosMayores:
+        print(camino)
+    return caminosMayores
 
 
 # Funcion encargada de encontrar todos los camninos posibles, desde una posicion en especifico, 
@@ -73,9 +83,11 @@ def listaMayor (lista1,lista2, matriz, largo):
         rest2 += matriz[lista2[i][0]] [lista2[i][1]]
         i += 1
     if (rest1 < rest2):
-        return lista2
+        return 2
+    elif (rest1 == rest2):
+        return 0
     else:
-        return lista1
+        return 1
 
       
 #----------------------------------------------------------      Funciones de Programacion Dinamica      ----------------------------------------------------------# 
