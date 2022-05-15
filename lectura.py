@@ -4,7 +4,7 @@ def  leer (nombre_archivo):
         contenido = archivo.readlines()
 
     lista_contenido = convierteListaMatriz (contenido)
-    print("lista_contenido: ",lista_contenido)
+    #print("lista_contenido: ",lista_contenido)
     return lista_contenido
     
     
