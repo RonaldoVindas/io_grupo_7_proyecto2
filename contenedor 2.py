@@ -99,7 +99,7 @@ def solucion(matriz,peso,matriz2,lista):
         if matriz2[i][k] != matriz2[i-1][k]:
             f=matriz2[i][0]
             wi=matriz[f-1][0]
-            lista.append(matriz2[i][0])
+            lista.insert(0,matriz2[i][0])
             p=p-wi
             k=k-wi
             i=i-1
@@ -109,7 +109,8 @@ def solucion(matriz,peso,matriz2,lista):
             aux=aux-1
     print("el beneficio maximo es: ",beneficioMAX)
     print("elemtos en la solucion son los siguientes: ")
-    imprimilistapeso(lista)
+    #imprimilistapeso(lista)
+    print(lista)
 #------------------------------------------------------------
 def mochila2():
     inicio = time.time()#para calcular el tiempo de ejeucion de la funcion
